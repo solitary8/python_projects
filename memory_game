@@ -1,0 +1,42 @@
+from random import randint
+from time import sleep
+import os
+
+print("Welcome to the memory game,you will have to memorise numbers between 1 and 50.")
+print("You will have to complete 3 levels who will become more complex the more you complete")
+nums_1 = []
+nums_2 = []
+nums_3 = []
+
+def gen_nums(num_of_times, list):
+    for x in range(num_of_times):
+        list.append(randint(0,51))
+
+def which_level(current_level):
+    if current_level == 1:
+        return 2
+    elif current_level == 2:
+        return 4
+    elif current_level == 3:
+        return 6
+
+def main_func(working_list):
+    print(working_list)
+    sleep(which_level(level))
+    os.system("clear")
+    guesses = []
+    while guesses != working_list:
+        guess = int(input("Make a guess :"))
+        if guess in working_list:
+            print("You're right on this one !")
+            working_list.append(guess)
+        else:
+            print("Wrong ! Try Again fast before you forget !")
+            
+gen_nums(4, nums_1)
+gen_nums(6, nums_2)
+gen_nums(8, nums_3)
+level = 1
+match level:
+    case 1:
+        main_func(nums_1) 
