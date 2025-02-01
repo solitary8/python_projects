@@ -1,3 +1,5 @@
+import books as add_books
+
 def welcome():
     print("Welcome to the library !")
     print("Here is your choice of activities :")
@@ -10,9 +12,7 @@ def welcome():
 class Book:
     def __init__(self):
         self.is_lent = False
-        self.book_dict = {
-            "Harry Potter 1" :{"author" : "J.K Rowling","is_lent" : False}
-        }
+        self.book_dict = add_books
 
     def add_book(self, author, title):
         if title in self.book_dict:
