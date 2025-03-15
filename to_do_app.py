@@ -30,7 +30,7 @@ class Task:
 
     @classmethod
     def from_to_string(cls, task_string):
-        title, due_date, completed = task_string.strip().split(" ")
+        title, due_date, completed = task_string.strip().split(",")
         return cls(title, due_date, completed == 'True')
     
 class To_Do_List:
